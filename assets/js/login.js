@@ -6,8 +6,6 @@ const btnLogin = document.querySelector('#login')
 
 btnCadastrar.addEventListener('click', (e) => {
 
-    e.preventDefault()
-
     const nome = document.querySelector('#nome').value
     const sobrenome = document.querySelector('#sobrenome').value
     const email = document.querySelector('#email').value
@@ -32,7 +30,7 @@ btnCadastrar.addEventListener('click', (e) => {
 
     console.log(consumidor)
 
-    fetch('http://localhost:3000/consumidores', {
+    fetch('https://api-etiquetas.herokuapp.com/consumidores', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
@@ -53,7 +51,7 @@ btnLogin.addEventListener('click', (e) => {
         senha,
     }
 
-    fetch('http://localhost:3000/consumidores/login', {
+    fetch('https://api-etiquetas.herokuapp.com/consumidores/login', {
         method: 'POST',
         headers: {
             "Content-Type": "application/json"
