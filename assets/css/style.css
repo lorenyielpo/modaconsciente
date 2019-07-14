@@ -183,7 +183,7 @@ blockquote span{
 }
 
 .show-indice{
-    display: none;
+    display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
     position: absolute;
