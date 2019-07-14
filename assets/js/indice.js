@@ -46,26 +46,14 @@ resultado.addEventListener('click', () => {
 
                         resultado.resumo_porcentagem.forEach(info => {
 
-                            console.log(info.porcentagem)
                             const valores = info.porcentagem.split('-', 3)
-                            const valor1 = valores[0]
-                            const valor2 = valores[1].replace('%', '')
 
-                            console.log(valor1)
-                            console.log(valor2)
+                            console.log(info.resumo)
 
-
-                            if (dado.porcentagem_final >= valor1 && dado.porcentagem_final <= valor2) {
+                            if (dado.porcentagem_final >= valores[0] && dado.porcentagem_final <= valores[1]) {
                                 titulo.innerHTML = info.porcentagem
                                 texto.innerHTML = info.resumo
-
-                                console.log(info.porcentagem)
-                                console.log(info.resumo)
-
-                            }
-                        })
-
-                        card.addEventListener('click', (e) => {
+                            }card.addEventListener('click', (e) => {
                             e.preventDefault()
                             texto.innerHTML = dado.porcentagem_final
                             titulo.innerHTML = dado.nome
@@ -73,6 +61,7 @@ resultado.addEventListener('click', () => {
                             card.removeChild(fecharCard)
                         })
 
+                        })
                     })
                 })
 
