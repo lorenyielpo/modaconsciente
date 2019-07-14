@@ -2,22 +2,24 @@ const resultado = document.querySelector('#resultadosIndice')
 const secoes = document.querySelector('#secoesIndice')
 const visoes = document.querySelector('#visoesIndice')
 const fazer = document.querySelector('#oqFazerIndice')
-const root = document.querySelector('.show-indice')
+const root = document.querySelector('#indice')
 
 
 resultado.addEventListener('click', () => {
-    root.style.display = 'flex'
+
     fetch('https://api-indice-itbm.herokuapp.com/resultado')
         .then(response => response.json())
         .then(resultados => {
             resultados.forEach(resultado => {
-                
-                console.log(resultado)
 
+                console.log(resultado)
+                const box = document.createElement('div')
+                box.setAttribute('class', 'show-indice')
+                
                 const fechar = document.createElement('p')
-                fechar.setAttribute('class','btn-fechar')
+                fechar.setAttribute('class', 'btn-fechar')
                 fechar.innerHTML = 'x'
-                root.appendChild(fechar)
+                box.appendChild(fechar)
 
                 resultado.porcentagem_final.forEach(dado => {
                     const card = document.createElement('div')
@@ -31,7 +33,8 @@ resultado.addEventListener('click', () => {
                     fecharCard.innerHTML = 'x'
                     fecharCard.style.display = 'none'
 
-                    root.appendChild(card)
+                    root.appendChild(box)
+                    box.appendChild(card)
                     card.appendChild(titulo)
                     card.appendChild(barra)
                     card.appendChild(texto)
@@ -42,9 +45,14 @@ resultado.addEventListener('click', () => {
                         fecharCard.style = 'block'
 
                         resultado.resumo_porcentagem.forEach(info => {
+
+                            console.log(info.porcentagem)
                             const valores = info.porcentagem.split('-', 3)
                             const valor1 = valores[0]
                             const valor2 = valores[1].replace('%', '')
+
+                            console.log(valor1)
+                            console.log(valor2)
 
 
                             if (dado.porcentagem_final >= valor1 && dado.porcentagem_final <= valor2) {
@@ -68,8 +76,8 @@ resultado.addEventListener('click', () => {
                     })
                 })
 
-                fechar.addEventListener('click', ()=>{
-                    root.style.display = 'none'
+                fechar.addEventListener('click', () => {
+                    root.removeChild(box)
                 })
 
             })
