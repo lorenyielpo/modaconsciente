@@ -72,3 +72,11 @@ btnLogin.addEventListener('click', (e) => {
         .catch(error => console.log(error))
 })
 
+fetch('https://api-etiquetas.herokuapp.com/consumidores')
+.then(response => response.json)
+.then(data => {
+    data.forEach(element => {
+        console.log(element.data)
+    });
+})
+
