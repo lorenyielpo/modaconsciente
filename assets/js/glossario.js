@@ -54,9 +54,9 @@ cadastrar.addEventListener('click', (e) => {
     e.preventDefault()
 
     const novoTermo = {
-        "termo": `"${nomeTermo.value}"`,
-        "significado": `"${significadoTermo.value}"`,
-        "fonte": `"${fonteTermo.value}"`
+        "termo": `${nomeTermo.value}`,
+        "significado": `${significadoTermo.value}`,
+        "fonte": `${fonteTermo.value}`
     }
 
     fetch('https://glossario-api.herokuapp.com/glossario', {
