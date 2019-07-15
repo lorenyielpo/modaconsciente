@@ -16,10 +16,10 @@
             <nav>
                 <ul>
                     <li><a href="#indice">Indice de Transparência</a></li>
-                    <li><a href="#glossario">Glossário</a></li>
-                    <li><a href="#etiquetas">Etiquetas</a></li>
-                    <li><a href="#dicas">Dicas</a></li>
-                    <li><a href="login.html">Login</a></li>
+                    <li><a href="#glossario" class="show">Glossário</a></li>
+                    <li><a href="#etiquetas" class="show">Etiquetas</a></li>
+                    <li><a href="#dicas" class="show">Dicas</a></li>
+                    <li><a href="login.html" id="logado">Login</a></li>
                 </ul>
             </nav>
         </div>
@@ -49,75 +49,113 @@
     <section id="indice">
         <h2>Indice de Transparência</h2>
         <hr>
-        <div class="texto-indice">
-            <p>Um dos primeiros passos para se tornar um consumidor consciente seria conhecer como é o processo
-                produtivo de determinada marca, mas dificilmente sabemos como mensurar essas informações ou apenas ter
-                conhecimento de que as empresas estão disponibilizando informações como: fornecedores, gestão de
-                resíduos, ações afirmativas, se pagam salários dignos e tantas outros dados.</p>
-            <p>O <strong>Índice de Transparência da Moda Brasil</strong> é um projeto da ONG <strong>Fashion
-                    Revolution</strong>, mas afinal de contas o que é o ITMB?</p>
-        </div>
-        <blockquote cite="https://issuu.com/fashionrevolution/docs/fr_indicedetranparenciadamodabrasil">
-            <p> O Índice de Transparência da Moda é uma análise desenvolvida pelo Fashion Revolution CIC e indica em
-                que medida grandes marcas da indústria estão divulgando publicamente suas informações em prol de uma
-                maior prestação de contas. O projeto existe globalmente desde 2016 e revisa e classifica marcas e
-                varejistas de acordo coma disponibilização de dados públicos em seus canais sobre suas políticas,
-                práticas e impactos sociais e ambientais em toda a cadeia de valor.</p>
-            <p><span>Trecho extraído do Indice de Transparência da Moda Brasil</span></p>
-        </blockquote>
-        <div class="btns-indice">
-            <button type="button" id="resultadosIndice">Resultados Rápidos</button>
-            <button type="button" id="secoesIndice">Seções</button>
-            <button type="button" id="visoesIndice">Pontos de Vista</button>
-            <button type="button" id="oqFazerIndice">O que fazer?</button>
+        <div class="info-indice">
+            <div class="texto-indice">
+                <p>Um dos primeiros passos para se tornar um consumidor consciente seria conhecer como é o processo
+                    produtivo de determinada marca, mas dificilmente sabemos como mensurar essas informações ou apenas
+                    ter
+                    conhecimento de que as empresas estão disponibilizando informações como: fornecedores, gestão de
+                    resíduos, ações afirmativas, se pagam salários dignos e tantas outros dados.</p>
+                <p>O <strong>Índice de Transparência da Moda Brasil</strong> é um projeto da ONG <strong>Fashion
+                        Revolution</strong>, mas afinal de contas o que é o ITMB?</p>
+            </div>
+            <blockquote cite="https://issuu.com/fashionrevolution/docs/fr_indicedetranparenciadamodabrasil">
+                <p> O Índice de Transparência da Moda é uma análise desenvolvida pelo Fashion Revolution CIC e indica em
+                    que medida grandes marcas da indústria estão divulgando publicamente suas informações em prol de uma
+                    maior prestação de contas. O projeto existe globalmente desde 2016 e revisa e classifica marcas e
+                    varejistas de acordo coma disponibilização de dados públicos em seus canais sobre suas políticas,
+                    práticas e impactos sociais e ambientais em toda a cadeia de valor.</p>
+                <p><span>Trecho extraído do Indice de Transparência da Moda Brasil</span></p>
+            </blockquote>
+
+            <div class="btns-indice">
+                <button type="button" id="resultadosIndice">Resultados Rápidos</button>
+                <button type="button" id="secoesIndice">Seções</button>
+                <button type="button" id="oqFazerIndice">O que fazer?</button>
+                <button type="button"><a
+                        href="https://issuu.com/fashionrevolution/docs/fr_indicedetranparenciadamodabrasil"
+                        target="_blank">ITMB</a></button>
+            </div>
         </div>
     </section>
-    <section id="glossario">
-        <h2>Glossário</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, nobis aperiam modi explicabo esse facere
-            similique officiis reprehenderit quia laboriosam at, minima porro odio eveniet? Debitis necessitatibus
-            impedit quos culpa.</p>
-        <div id="forms-termos">
-            <label for="termo">Termo</label>
-            <input type="text" name="termo">
-            <label for="significado">Significado</label>
-            <input type="text" name="significado">
-            <label for="fonte">Fonte</label>
-            <input type="text" name="termo">
-            <button type="submit" id="buscar-termo">Buscar</button>
-            <button type="submit" id="cadastrar-termo">Novo termo</button>
+    <section id="glossario" class="show">
+        <div class="box-glossário">
+            <h2>Glossário</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, nobis aperiam modi explicabo esse facere
+                similique officiis reprehenderit quia laboriosam at, minima porro odio eveniet? Debitis necessitatibus
+                impedit quos culpa.</p>
+            <div id="forms-termos">
+                <label for="termo">Termo
+                    <input type="text" name="termo" id="nome-termo"></label>
+                <label for="significado">Significado
+                    <input type="text" name="significado" id="significado-termo"></label>
+                <label for="fonte">Fonte
+                    <input type="text" name="termo" id="fonte-termo"></label>
+                <button type="submit" id="buscar-termo">Buscar</button>
+                <button type="submit" id="cadastrar-termo">Novo termo</button>
+            </div>
         </div>
         <div id="termos">
+            <h3>Glossário da Moda Sustentável</h3>
         </div>
     </section>
-    <section id="etiquetas">
-        <h2>Etiquetas</h2>
-        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, praesentium fugiat ipsum facilis esse eius
-            dolores soluta quisquam sint quos modi ad aperiam repellendus maiores veniam! Facilis fugiat totam est.</p>
-        <button><a href="cadastro_etiquetas.html">Cadastrar Etiqueta</a></button>
+    <section id="etiquetas" class="show">
+        <div class="conteudo-etiquetas">
+            <h2>O que saber sobre uma etiqueta?</h2>
+            <div class="texto-etiquetas">
+                <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Dolorem, praesentium fugiat ipsum facilis
+                    esse eius
+                    dolores soluta quisquam sint quos modi ad aperiam repellendus maiores veniam! Facilis fugiat totam
+                    est.</p>
+                <h3>Cadastre sua etiqueta</h3>
+            </div>
+            <div class="grid-etiquetas">
+                <form method="POST">
+
+                    <label for="marca">Marca
+                        <input type="text" name="marca" id="marca"></label>
+                    <label for="razao">Razão Social
+                        <input type="text" name="razao" id="razao"></label>
+                    <label for="cnpj">CNPJ
+                        <input type="text" name="cnpj" id="cnpj"></label>
+                    <label for="fabricado">País de Fabricação
+                        <input type="text" name="fabricado" id="fabricado"></label>
+                    <button id="cadastrar-etiqueta">Cadastrar Etiqueta</button>
+                    <button id="buscar-etiqueta">Buscar Etiqueta</button>
+                </form>
+                <div class="box-etiquetas"></div>
+            </div>
+        </div>
     </section>
-    <section id="testes">
-        <h2>Você consome de forma consciente?</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit tenetur repudiandae optio fugit dolor nam id
-            cum laboriosam repellat placeat nulla officiis perspiciatis facere, alias neque qui reprehenderit
-            consequuntur expedita!</p>
-        <form>
-            <input type="text">
-        </form>
-    </section>
-    <section id="dicas">
+    <section id="dicas" class="show">
+
         <h2>Dicas</h2>
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Pariatur, iste necessitatibus? Aliquid iure fuga
             quis atque aut in eaque, earum facere cum quibusdam, maiores debitis, ipsa laboriosam. Aliquam, et error!
         </p>
-    </section>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima vel reiciendis, molestiae facilis id omnis!
+            Harum minima ratione natus repellat ea aperiam. Consequuntur velit alias consectetur nesciunt! Expedita,
+            officia error!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Qui culpa provident accusamus saepe praesentium.
+            Inventore suscipit, quisquam porro totam similique voluptatum, quod labore, eligendi dignissimos sint
+            assumenda voluptate aperiam molestias.</p>
+        <div class="news">
+            <h3>Newsletter</h3>
+            <p>Receba nossas novidades!</p>
+            <label for="email">E-mail</label>
+            <input type="email" name="email" id="email-news">
+            <label for="nome">Nome</label>
+            <input type="text" name="nome" id="nome-news">
+            <button id="cadastrar-news">Cadastrar</button>
+        </div>
     <footer>
-        <p>Desenvolvido por Loreny Ielpo</p>
+        <p>Desenvolvido por <a href="https://github.com/lorenyielpo" target="_blank">Loreny Ielpo</a></p>
     </footer>
     <script src="assets/js/index.js"></script>
     <script src="assets/js/glossario.js"></script>
-    <script src="assets/js/efeitos.js"></script>
     <script src="assets/js/indice.js"></script>
+    <script src="assets/js/cadastro_etiquetas.js"></script>
+    <script src="assets/js/login.js"></script>
 </body>
 
 </html>
