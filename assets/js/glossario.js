@@ -26,7 +26,8 @@ fetch('https://glossario-api.herokuapp.com/glossario')
             boxTermos.appendChild(significado)
             boxTermos.appendChild(fonte)
 
-            buscar.addEventListener('click', () => {
+            buscar.addEventListener('click', (e) => {
+                e.preventDefault()
                 boxTermos.remove()
 
                 console.log(termo.termo.includes(nomeTermo.value))
