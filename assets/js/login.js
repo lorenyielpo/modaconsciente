@@ -55,7 +55,7 @@ btnCadastrar.addEventListener('click', (e) => {
         })
             .then(response => response.json())
             .then(auth => {
-                let token = `"Barear ${auth.token}"`
+                let token = `Bearer ${auth.token}`
                 let autorizado = `${auth.auth}`
     
                 localStorage.setItem('token', token)
@@ -90,7 +90,7 @@ btnLogin.addEventListener('click', (e) => {
     })
         .then(response => response.json())
         .then(auth => {
-            let token = `"Barear ${auth.token}"`
+            let token = `Bearer ${auth.token}`
             let autorizado = `${auth.auth}`
 
             localStorage.setItem('token', token)

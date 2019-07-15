@@ -45,6 +45,7 @@ fetch('https://api-etiquetas.herokuapp.com/consumidores')
                         card.appendChild(pais)
                     }
                 })
+                
             })
 
 
@@ -89,6 +90,8 @@ btnEtiqueta.addEventListener('click', (e) => {
                         "Authorization": token
                     }
                 })
+
+                location.reload()
             })
         .catch(error => console.log(error))
 })
