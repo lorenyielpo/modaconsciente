@@ -66,9 +66,3 @@ cadastroNews.addEventListener('click', (e)=>{
         email = ''
     })
 })
-
-botoes.forEach(botao => {
-    botao.addEventListener('mouseover', ()=>{
-        botao.style.backgroundColor = "#D9D4D2"
-    })
-})
