@@ -1,5 +1,6 @@
 const navbar = document.querySelector('#nav')
 let show = document.querySelectorAll('.show')
+let botoes = document.querySelectorAll('button')
 const consumidor = document.querySelector('.inicio-texto')
 const logado = document.querySelector('#logado')
 const cadastroNews = document.querySelector('#cadastrar-news')
@@ -63,5 +64,11 @@ cadastroNews.addEventListener('click', (e)=>{
     .then(()=>{
         nome = ''
         email = ''
+    })
+})
+
+botoes.forEach(botao => {
+    botao.addEventListener('mouseover', ()=>{
+        botao.style.backgroundColor = "#D9D4D2"
     })
 })
