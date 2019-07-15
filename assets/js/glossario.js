@@ -66,7 +66,7 @@ cadastrar.addEventListener('click', (e) => {
             'Access-Control-Allow-Origin': '*',
             "Content-Type": "application/json",
             "Accept": "application/json"
-        },
+        }
         
     })    
 })
