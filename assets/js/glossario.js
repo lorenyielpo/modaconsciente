@@ -1,0 +1,101 @@
+const lista = document.querySelector('#termos')
+const cadastrar = document.querySelector('#cadastrar-termo')
+const buscar = document.querySelector('#buscar-termo')
+let nomeTermo = document.querySelector('#nome-termo')
+let significadoTermo = document.querySelector('#significado-termo')
+let fonteTermo = document.querySelector('#fonte-termo')
+
+fetch('http://localhost:7001/glossario')
+    .then(response => response.json())
+    .then(termos => {
+
+        const index = document.createElement('dl')
+        index.setAttribute('class', 'grid-glossario')
+        termos.forEach(termo => {
+            const palavra = document.createElement('dt')
+            const boxTermos = document.createElement('div')
+            palavra.innerHTML = `<strong>${termo.termo}</strong>`
+            const significado = document.createElement('dd')
+            significado.innerHTML = `${termo.significado}`
+            const fonte = document.createElement('dd')
+            fonte.innerHTML = `<em>Fonte: </em>${termo.fonte}`
+
+            lista.appendChild(index)
+            index.appendChild(boxTermos)
+            boxTermos.appendChild(palavra)
+            boxTermos.appendChild(significado)
+            boxTermos.appendChild(fonte)
+
+            buscar.addEventListener('click', () => {
+                boxTermos.remove()
+
+                console.log(termo.termo.includes(nomeTermo.value))
+                if (nomeTermo.value !== '' && termo.termo.includes(nomeTermo.value)) {
+                    const palavra = document.createElement('dt')
+                    const boxTermos = document.createElement('div')
+                    palavra.innerHTML = `<strong>${termo.termo}</strong>`
+                    const significado = document.createElement('dd')
+                    significado.innerHTML = `${termo.significado}`
+                    const fonte = document.createElement('dd')
+                    fonte.innerHTML = `<em>Fonte: </em>${termo.fonte}`
+
+                    index.appendChild(boxTermos)
+                    boxTermos.appendChild(palavra)
+                    boxTermos.appendChild(significado)
+                    boxTermos.appendChild(fonte)
+                }
+
+                if (significadoTermo.value !== '' && termo.significado.includes(significadoTermo.value)) {
+                    const palavra = document.createElement('dt')
+                    const boxTermos = document.createElement('div')
+                    palavra.innerHTML = `<strong>${termo.termo}</strong>`
+                    const significado = document.createElement('dd')
+                    significado.innerHTML = `${termo.significado}`
+                    const fonte = document.createElement('dd')
+                    fonte.innerHTML = `<em>Fonte: </em>${termo.fonte}`
+
+                    index.appendChild(boxTermos)
+                    boxTermos.appendChild(palavra)
+                    boxTermos.appendChild(significado)
+                    boxTermos.appendChild(fonte)
+                }
+
+                if (termo.fonte.includes(fonteTermo.value) && fonteTermo.value !== '') {
+                    const palavra = document.createElement('dt')
+                    const boxTermos = document.createElement('div')
+                    palavra.innerHTML = `<strong>${termo.termo}</strong>`
+                    const significado = document.createElement('dd')
+                    significado.innerHTML = `${termo.significado}`
+                    const fonte = document.createElement('dd')
+                    fonte.innerHTML = `<em>Fonte: </em>${termo.fonte}`
+
+                    index.appendChild(boxTermos)
+                    boxTermos.appendChild(palavra)
+                    boxTermos.appendChild(significado)
+                    boxTermos.appendChild(fonte)
+                }
+
+            })
+        })
+    })
+    .catch(error => console.log(error))
+
+cadastrar.addEventListener('click', () => {
+
+    const novoTermo = {
+        "termo": `"${nomeTermo.value}"`,
+        "significado": `"${significadoTermo.value}"`,
+        "fonte": `"${fonteTermo.value}"`
+    }
+
+    fetch('http://localhost:7001/glossario', {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(novoTermo)
+    })
+
+    location.reload()
+})
+
