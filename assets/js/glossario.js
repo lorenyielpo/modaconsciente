@@ -68,11 +68,6 @@ cadastrar.addEventListener('click', (e) => {
             "Accept": "application/json"
         },
         
-    })
-    .then(()=>{
-        location.reload()
-    })
-    .catch(error => console.log(error))
-    
+    })    
 })
 
