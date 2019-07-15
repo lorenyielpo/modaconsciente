@@ -5,7 +5,7 @@ let nomeTermo = document.querySelector('#nome-termo')
 let significadoTermo = document.querySelector('#significado-termo')
 let fonteTermo = document.querySelector('#fonte-termo')
 
-fetch('http://localhost:7001/glossario')
+fetch('https://glossario-api.herokuapp.com/glossario')
     .then(response => response.json())
     .then(termos => {
 
@@ -30,37 +30,7 @@ fetch('http://localhost:7001/glossario')
                 boxTermos.remove()
 
                 console.log(termo.termo.includes(nomeTermo.value))
-                if (nomeTermo.value !== '' && termo.termo.includes(nomeTermo.value)) {
-                    const palavra = document.createElement('dt')
-                    const boxTermos = document.createElement('div')
-                    palavra.innerHTML = `<strong>${termo.termo}</strong>`
-                    const significado = document.createElement('dd')
-                    significado.innerHTML = `${termo.significado}`
-                    const fonte = document.createElement('dd')
-                    fonte.innerHTML = `<em>Fonte: </em>${termo.fonte}`
-
-                    index.appendChild(boxTermos)
-                    boxTermos.appendChild(palavra)
-                    boxTermos.appendChild(significado)
-                    boxTermos.appendChild(fonte)
-                }
-
-                if (significadoTermo.value !== '' && termo.significado.includes(significadoTermo.value)) {
-                    const palavra = document.createElement('dt')
-                    const boxTermos = document.createElement('div')
-                    palavra.innerHTML = `<strong>${termo.termo}</strong>`
-                    const significado = document.createElement('dd')
-                    significado.innerHTML = `${termo.significado}`
-                    const fonte = document.createElement('dd')
-                    fonte.innerHTML = `<em>Fonte: </em>${termo.fonte}`
-
-                    index.appendChild(boxTermos)
-                    boxTermos.appendChild(palavra)
-                    boxTermos.appendChild(significado)
-                    boxTermos.appendChild(fonte)
-                }
-
-                if (termo.fonte.includes(fonteTermo.value) && fonteTermo.value !== '') {
+                if ((nomeTermo.value !== '' && termo.termo.includes(nomeTermo.value)) || (significadoTermo.value !== '' && termo.significado.includes(significadoTermo.value))|| (termo.fonte.includes(fonteTermo.value) && fonteTermo.value !== '')){
                     const palavra = document.createElement('dt')
                     const boxTermos = document.createElement('div')
                     palavra.innerHTML = `<strong>${termo.termo}</strong>`
@@ -80,7 +50,8 @@ fetch('http://localhost:7001/glossario')
     })
     .catch(error => console.log(error))
 
-cadastrar.addEventListener('click', () => {
+cadastrar.addEventListener('click', (e) => {
+    e.preventDefault()
 
     const novoTermo = {
         "termo": `"${nomeTermo.value}"`,
@@ -88,14 +59,20 @@ cadastrar.addEventListener('click', () => {
         "fonte": `"${fonteTermo.value}"`
     }
 
-    fetch('http://localhost:7001/glossario', {
+    fetch('https://glossario-api.herokuapp.com/glossario', {
         method: 'POST',
+        body: JSON.stringify(novoTermo),
         headers: {
-            "Content-Type": "application/json"
+            'Access-Control-Allow-Origin': '*',
+            "Content-Type": "application/json",
+            "Accept": "application/json"
         },
-        body: JSON.stringify(novoTermo)
+        
     })
-
-    location.reload()
+    .then(()=>{
+        location.reload()
+    })
+    .catch(error => console.log(error))
+    
 })
 

@@ -267,7 +267,7 @@ blockquote span{
     width: 80%;
 }
 
-#forms-termos{
+#forms-termos form{
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -375,7 +375,7 @@ dl dd{
     margin: 2% 0% 1%;
 }
 
-.news{
+.news form{
     display: flex;
     flex-direction: column;
 }

@@ -1,4 +1,3 @@
-const status = document.querySelector('#statusLogin')
 const btnCadastrar = document.querySelector('#cadastrar')
 const btnLogin = document.querySelector('#login')
 const divCadastro = document.querySelector('cadastro-usuario')
@@ -29,12 +28,14 @@ btnCadastrar.addEventListener('click', (e) => {
         profissao
     }
 
-    fetch('http://localhost:6001/consumidores', {
+    fetch('https://api-etiquetas.herokuapp.com/consumidores', {
         method: 'POST',
+        body: JSON.stringify(consumidor),
         headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(consumidor)
+            'Access-Control-Allow-Origin': '*',
+            "Content-Type": "application/json",
+            "Accept": "application/json"
+        },  
     })
     .then(()=>{
 
@@ -43,17 +44,18 @@ btnCadastrar.addEventListener('click', (e) => {
             senha,
         }
     
-        fetch('http://localhost:6001/consumidores/login', {
+        fetch('https://api-etiquetas.herokuapp.com/consumidores/login', {
             method: 'POST',
+            body: JSON.stringify(dadosConsumidor),
             headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(dadosConsumidor)
+                'Access-Control-Allow-Origin': '*',
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }, 
         })
             .then(response => response.json())
             .then(auth => {
-                status.innerHTML = 'foi'
-                let token = `${auth.token}`
+                let token = `"Barear ${auth.token}"`
                 let autorizado = `${auth.auth}`
     
                 localStorage.setItem('token', token)
@@ -77,17 +79,18 @@ btnLogin.addEventListener('click', (e) => {
         senha,
     }
 
-    fetch('http://localhost:6001/consumidores/login', {
+    fetch('https://api-etiquetas.herokuapp.com/consumidores/login', {
         method: 'POST',
+        body: JSON.stringify(dadosConsumidor),
         headers: {
-            "Content-Type": "application/json"
+            'Access-Control-Allow-Origin': '*',
+            "Content-Type": "application/json",
+            "Accept": "application/json"
         },
-        body: JSON.stringify(dadosConsumidor)
     })
         .then(response => response.json())
         .then(auth => {
-            status.innerHTML = 'foi'
-            let token = `${auth.token}`
+            let token = `"Barear ${auth.token}"`
             let autorizado = `${auth.auth}`
 
             localStorage.setItem('token', token)

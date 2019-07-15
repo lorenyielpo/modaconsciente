@@ -85,6 +85,7 @@
                 similique officiis reprehenderit quia laboriosam at, minima porro odio eveniet? Debitis necessitatibus
                 impedit quos culpa.</p>
             <div id="forms-termos">
+                <form method="POST">
                 <label for="termo">Termo
                     <input type="text" name="termo" id="nome-termo"></label>
                 <label for="significado">Significado
@@ -93,6 +94,7 @@
                     <input type="text" name="termo" id="fonte-termo"></label>
                 <button type="submit" id="buscar-termo">Buscar</button>
                 <button type="submit" id="cadastrar-termo">Novo termo</button>
+            </form>
             </div>
         </div>
         <div id="termos">
@@ -142,12 +144,15 @@
         <div class="news">
             <h3>Newsletter</h3>
             <p>Receba nossas novidades!</p>
+            <form method="POST">
             <label for="email">E-mail</label>
             <input type="email" name="email" id="email-news">
             <label for="nome">Nome</label>
             <input type="text" name="nome" id="nome-news">
             <button id="cadastrar-news">Cadastrar</button>
+        </form>
         </div>
+        </section>
     <footer>
         <p>Desenvolvido por <a href="https://github.com/lorenyielpo" target="_blank">Loreny Ielpo</a></p>
     </footer>
@@ -155,7 +160,6 @@
     <script src="assets/js/glossario.js"></script>
     <script src="assets/js/indice.js"></script>
     <script src="assets/js/cadastro_etiquetas.js"></script>
-    <script src="assets/js/login.js"></script>
 </body>
 
 </html>

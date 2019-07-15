@@ -33,13 +33,15 @@ if(authLogado){
         localStorage.removeItem('sobrenome')
         localStorage.removeItem('email')
         localStorage.removeItem('token')
+        localStorage.removeItem('id')
         
         logado.innerHTML = 'Login'
         show.style.display = 'none'
     })
 }
 
-cadastroNews.addEventListener('click', ()=>{
+cadastroNews.addEventListener('click', (e)=>{
+    e.preventDefault()
     const nome = document.querySelector('#nome-news').value
     const email = document.querySelector('#email-news').value
 
@@ -48,12 +50,15 @@ cadastroNews.addEventListener('click', ()=>{
         email
     }
 
-    fetch('http://localhost:6001/send-email', {
+    fetch('https://api-etiquetas.herokuapp.com/send-email', {
         method: 'POST',
+        body: JSON.stringify(dadosNews),
         headers: {
-            "Content-Type": "application/json"
+            'Access-Control-Allow-Origin': '*',
+            "Content-Type": "application/json",
+            "Accept": "application/json"
         },
-        body: JSON.stringify(dadosNews)
+        
     })
     .then(()=>{
         nome = ''

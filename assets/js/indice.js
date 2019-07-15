@@ -33,7 +33,7 @@ const cardX = () => {
 resultado.addEventListener('click', () => {
     const modal = box()
     modal.appendChild(fechar)
-    fetch('http://localhost:5001/resultado')
+    fetch('https://api-indice-itbm.herokuapp.com/resultado')
         .then(response => response.json())
         .then(resultados => {
             resultados.forEach(resultado => {
@@ -78,7 +78,7 @@ resultado.addEventListener('click', () => {
 secoes.addEventListener('click', () => {
     const modal = box()
     modal.appendChild(fechar)
-    fetch('http://localhost:5001/secoes')
+    fetch('https://api-indice-itbm.herokuapp.com/secoes')
         .then(response => response.json())
         .then(secoes => {
             secoes.forEach(secao => {
@@ -117,7 +117,7 @@ secoes.addEventListener('click', () => {
 fazer.addEventListener('click', () => {
     const modal = box()
     modal.appendChild(fechar)
-    fetch('http://localhost:5001/atitudes')
+    fetch('https://api-indice-itbm.herokuapp.com/atitudes')
         .then(response => response.json())
         .then(atitudes => {
             atitudes.forEach(atitude => {
